@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; background:#FFFFFF; }
+  body { font-family:'Inter', -apple-system, 'Helvetica Neue', sans-serif; color:#1D1D1F; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#0B3D91; text-decoration:none; }
+  a:hover { color:#2D9CDB; }
+</style>
+</helmet>
+
+<div style="width:100%; overflow-x:hidden; background:#FFFFFF">
+
+  <header style="position:sticky; top:0; z-index:60; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:16px 32px; background:rgba(255,255,255,0.86); backdrop-filter:saturate(180%) blur(22px); border-bottom:1px solid rgba(11,61,145,0.08)">
+    <img src="logo-health-ids.png" alt="Health IDS" style="height:28px; width:auto; flex:none; mix-blend-mode:multiply" />
+    <div style="display:flex; align-items:center; gap:4px">
+      <a href="#metodo" style="font-size:13.5px; font-weight:500; color:#5A6478; padding:9px 14px; white-space:nowrap">Método</a>
+      <a href="#programa" style="font-size:13.5px; font-weight:500; color:#5A6478; padding:9px 14px; white-space:nowrap">Temario</a>
+      <a href="#oferta" style="font-size:13.5px; font-weight:500; color:#5A6478; padding:9px 14px; white-space:nowrap">Precios</a>
+      <a href="#rutas" style="font-size:13.5px; font-weight:600; color:#FFFFFF; background:#0B3D91; padding:11px 20px; border-radius:999px; white-space:nowrap; flex:none" style-hover="background:#092F72">Descubre tu ruta</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="position:relative; background:#071E4D; color:#FFFFFF; min-height:660px; display:flex">
+    <div style="position:absolute; inset:0">
+      <image-slot id="hds-hero" shape="rect" fit="cover" placeholder="foto: profesional de salud mirando al futuro (moodboard)"></image-slot>
+    </div>
+    <div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(100deg, rgba(7,30,77,0.97) 0%, rgba(7,30,77,0.93) 34%, rgba(11,61,145,0.55) 62%, rgba(11,61,145,0.15) 100%)"></div>
+    <div style="position:relative; pointer-events:none; width:100%; max-width:1240px; margin:0 auto; padding:104px 32px 88px; display:flex; align-items:center">
+      <div style="max-width:680px">
+        <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#8FC4EE; line-height:1.9">Avalado por la Escuela de Medicina y Ciencias<br />de la Salud del Tecnológico de Monterrey</div>
+        <div style="width:44px; height:2px; background:#2D9CDB; margin:22px 0 26px"></div>
+        <h1 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(38px,5.4vw,66px); line-height:1.05; letter-spacing:-0.02em; text-wrap:balance">El perfil más escaso en salud no es el científico de datos. Es quien habla salud y habla datos.</h1>
+        <p style="margin:28px 0 0; max-width:54ch; font-size:17px; line-height:1.7; color:#C5D6EE">Con el <strong style="color:#FFFFFF; font-weight:600">Método Puente</strong> llegas desde el desarrollo o desde el sector salud y en 8 módulos 100% virtuales terminas con un demo funcional de IA que resuelve un problema real de salud.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:38px; pointer-events:auto">
+          <a href="#rutas" style="display:inline-flex; align-items:center; gap:10px; background:#FFFFFF; color:#0B3D91; font-size:15.5px; font-weight:600; padding:16px 28px; border-radius:999px; white-space:nowrap" style-hover="background:#E6F2FF">Descubre tu ruta <span>→</span></a>
+          <a href="#oferta" style="display:inline-flex; align-items:center; background:transparent; color:#FFFFFF; font-size:15.5px; font-weight:600; padding:16px 28px; border-radius:999px; border:1px solid rgba(255,255,255,0.35); white-space:nowrap" style-hover="border-color:#FFFFFF">Empieza con el Módulo 1, con garantía</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background:#0B3D91; color:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto; padding:20px 32px; display:flex; flex-wrap:wrap; gap:10px 36px; justify-content:space-between">
+      <sc-for list="{{ trustItems }}" as="item" hint-placeholder-count="4">
+        <span style="font-size:11.5px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#B9D3F0; white-space:nowrap">{{ item }}</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- PROCLAMACIÓN -->
+  <section style="padding:128px 32px; background:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">La proclamación</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em; max-width:20ch">La IA en salud no se está frenando por falta de tecnología.</h2>
+      <p style="margin:26px 0 0; max-width:34ch; font-family:'Source Serif 4',Georgia,serif; font-size:clamp(22px,2.6vw,30px); line-height:1.35; color:#0B3D91">Se frena en el espacio entre dos personas.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:1px; margin-top:56px; background:#E4EAF3; border:1px solid #E4EAF3">
+        <div style="flex:1 1 320px; min-width:0; padding:40px; background:#FFFFFF">
+          <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#2D9CDB">El desarrollador</span>
+          <p style="margin:18px 0 0; font-family:'Source Serif 4',Georgia,serif; font-size:21px; line-height:1.45; color:#1D1D1F">Construye el modelo, pero no sabe cómo funciona un hospital, qué datos existen ni qué reglas los protegen.</p>
+        </div>
+        <div style="flex:1 1 320px; min-width:0; padding:40px; background:#FFFFFF">
+          <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#2D9CDB">El profesional de salud</span>
+          <p style="margin:18px 0 0; font-family:'Source Serif 4',Georgia,serif; font-size:21px; line-height:1.45; color:#1D1D1F">Sabe exactamente qué hay que resolver, pero no sabe convertirlo en un proyecto de datos.</p>
+        </div>
+      </div>
+
+      <p style="margin:40px 0 0; max-width:62ch; font-size:17.5px; line-height:1.7; color:#5A6478">Cada uno domina su mitad y el proyecto se queda en el piloto.</p>
+      <p style="margin:24px 0 0; max-width:30ch; font-family:'Source Serif 4',Georgia,serif; font-size:clamp(24px,2.8vw,34px); line-height:1.3; letter-spacing:-0.015em; color:#0B3D91">Quien domina las dos mitades no compite por la vacante. La vacante lo busca a él.</p>
+    </div>
+  </section>
+
+  <!-- MECANISMO -->
+  <section id="metodo" style="padding:128px 32px; background:linear-gradient(180deg,#0B3D91 0%,#071E4D 100%); color:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#8FC4EE">El mecanismo</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 64px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em; max-width:20ch">El Método Puente: dos entradas, un mismo destino</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:48px">
+        <sc-for list="{{ metodo }}" as="p" hint-placeholder-count="3">
+          <div style="flex:1 1 280px; min-width:0; border-top:1px solid rgba(255,255,255,0.22); padding-top:28px">
+            <span style="font-family:'Source Serif 4',Georgia,serif; font-size:34px; line-height:1; color:#2D9CDB">{{ p.n }}</span>
+            <h3 style="margin:20px 0 0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:26px; line-height:1.3; letter-spacing:-0.01em">{{ p.t }}</h3>
+            <p style="margin:16px 0 0; font-size:16.5px; line-height:1.7; color:#C5D6EE">{{ p.d }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUTAS -->
+  <section id="rutas" style="padding:120px 32px; background:#F6F8FB; border-top:1px solid #E6EBF3">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Selector de ruta</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 10px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em">¿Desde dónde cruzas el puente?</h2>
+      <p style="margin:0 0 48px; font-size:16.5px; color:#5A6478">Elige tu ruta y la página se ajusta a ti.</p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:24px">
+        <div onClick="{{ pickDev }}" style="{{ devCardStyle }}">
+          <div style="height:180px; position:relative; overflow:hidden">
+            <image-slot id="hds-track-dev" shape="rect" fit="cover" placeholder="foto: dev frente a pantallas de datos"></image-slot>
+            <div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(7,30,77,0.25), rgba(7,30,77,0.72))"></div>
+            <span style="position:absolute; left:32px; bottom:24px; pointer-events:none; font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:#FFFFFF">Ruta Developer</span>
+          </div>
+          <div style="padding:36px">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px">
+              <h3 style="margin:0; flex:1; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:26px; line-height:1.25; letter-spacing:-0.015em">Ya programas. Lo que te falta es el sector.</h3>
+              <span style="{{ devDotStyle }}"></span>
+            </div>
+            <p style="margin:18px 0 0; font-size:16px; line-height:1.7; color:#5A6478">Las healthtechs no te descartan por tu código; te descartan porque no conoces el dominio. Aquí aprendes lo que un curso genérico de IA nunca te va a enseñar: cómo se mueven los datos en salud, quién los controla y cómo se construye algo que un hospital de verdad pueda usar.</p>
+            <div style="height:1px; background:#E6EBF3; margin:28px 0"></div>
+            <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#8A93A6">Te llevas</span>
+            <p style="margin:14px 0 0; font-size:16.5px; line-height:1.6; color:#1D1D1F">Dominio del sector + un demo de IA en salud para tu portafolio.</p>
+            <div style="margin-top:30px; display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:#0B3D91; white-space:nowrap">Soy desarrollador <span>→</span></div>
+          </div>
+        </div>
+
+        <div onClick="{{ pickSalud }}" style="{{ saludCardStyle }}">
+          <div style="height:180px; position:relative; overflow:hidden">
+            <image-slot id="hds-track-salud" shape="rect" fit="cover" placeholder="foto: equipo clínico en sesión de trabajo"></image-slot>
+            <div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(7,30,77,0.25), rgba(7,30,77,0.72))"></div>
+            <span style="position:absolute; left:32px; bottom:24px; pointer-events:none; font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:#FFFFFF">Ruta Salud y Administrativo</span>
+          </div>
+          <div style="padding:36px">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:20px">
+              <h3 style="margin:0; flex:1; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:26px; line-height:1.25; letter-spacing:-0.015em">Conoces el problema mejor que nadie. Te falta cómo resolverlo.</h3>
+              <span style="{{ saludDotStyle }}"></span>
+            </div>
+            <p style="margin:18px 0 0; font-size:16px; line-height:1.7; color:#5A6478">Deja de ser quien pide el reporte y conviértete en quien diseña la solución. Aprendes a estructurar un proyecto de datos, a entender qué es posible con IA y a trabajar de tú a tú con el equipo técnico.</p>
+            <div style="height:1px; background:#E6EBF3; margin:28px 0"></div>
+            <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#8A93A6">Te llevas</span>
+            <p style="margin:14px 0 0; font-size:16.5px; line-height:1.6; color:#1D1D1F">Criterio técnico + un caso de negocio con demo para presentar en tu organización.</p>
+            <div style="margin-top:30px; display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:#0B3D91; white-space:nowrap">Vengo de salud o administración <span>→</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMARIO -->
+  <section id="programa" style="padding:128px 32px; background:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Temario</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 20px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em">Lo que construyes módulo a módulo</h2>
+      <div style="display:flex; gap:24px; padding:0 0 14px; border-bottom:1px solid #1D1D1F">
+        <span style="flex:1 1 300px; min-width:0; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#8A93A6">Módulo</span>
+        <span style="flex:1 1 340px; min-width:0; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#8A93A6">Al terminarlo puedes…</span>
+      </div>
+      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="8">
+        <div style="display:flex; flex-wrap:wrap; gap:8px 24px; padding:26px 0; border-bottom:1px solid #E6EBF3">
+          <div style="flex:1 1 300px; min-width:0; display:flex; gap:18px; align-items:baseline">
+            <span style="font-size:12px; font-weight:500; color:#2D9CDB; width:22px; flex:none">{{ m.num }}</span>
+            <span style="font-family:'Source Serif 4',Georgia,serif; font-size:21px; line-height:1.35; color:#1D1D1F">{{ m.title }}</span>
+          </div>
+          <p style="flex:1 1 340px; min-width:0; margin:0; font-size:16.5px; line-height:1.65; color:#5A6478">{{ m.can }}</p>
+        </div>
+      </sc-for>
+      <p style="margin:28px 0 0; font-size:15.5px; color:#8A93A6">Puedes tomar módulos sueltos y recibir un certificado por cada uno.</p>
+    </div>
+  </section>
+
+  <!-- ENTREGABLE -->
+  <section style="padding:0 32px 128px; background:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto; display:flex; flex-wrap:wrap; gap:64px; align-items:center">
+      <div style="flex:1 1 400px; min-width:0">
+        <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Entregable</div>
+        <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+        <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.2vw,50px); line-height:1.08; letter-spacing:-0.02em; max-width:17ch">Es tu prueba, no un diploma más.</h2>
+        <p style="margin:28px 0 0; font-size:17.5px; line-height:1.7; color:#5A6478; max-width:52ch">Cierras con un caso de negocio y un demo funcional de IA que ataca un problema real de salud. Sirve para la entrevista en una healthtech, para la propuesta a dirección o para el siguiente paso en tu carrera.</p>
+        <p style="margin:28px 0 0; font-size:16px; line-height:1.6; color:#0B3D91; font-weight:500; max-width:48ch">{{ proyectoNota }}</p>
+      </div>
+      <div style="flex:1 1 420px; min-width:0; height:420px; border-radius:6px; overflow:hidden; box-shadow:0 40px 80px -30px rgba(11,61,145,0.4)">
+        <image-slot id="hds-demo" shape="rect" fit="cover" placeholder="captura: dashboard del proyecto final"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta" style="padding:120px 32px; background:#F6F8FB; border-top:1px solid #E6EBF3">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">La oferta</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 48px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em">Todo lo que incluye tu inscripción</h2>
+
+      <div style="display:flex; flex-wrap:wrap; gap:1px; background:#E4EAF3; border:1px solid #E4EAF3">
+        <sc-for list="{{ incluye }}" as="i" hint-placeholder-count="8">
+          <div style="flex:1 1 300px; min-width:0; padding:28px 30px; background:#FFFFFF; display:flex; gap:14px; align-items:flex-start">
+            <span style="color:#2D9CDB; flex:none; font-size:15px; line-height:1.6">✓</span>
+            <p style="margin:0; font-size:16px; line-height:1.6; color:#3A4358">{{ i }}</p>
+          </div>
+        </sc-for>
+      </div>
+
+      <h3 style="margin:72px 0 32px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(24px,3vw,36px); line-height:1.15; letter-spacing:-0.02em">Elige cómo entrar</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:stretch">
+        <sc-for list="{{ planes }}" as="p" hint-placeholder-count="3">
+          <div style="{{ p.cardStyle }}">
+            <div style="display:flex; align-items:center; gap:10px">
+              <span style="{{ p.labelStyle }}">{{ p.label }}</span>
+              <span style="{{ p.starStyle }}">Recomendado</span>
+            </div>
+            <div style="margin-top:22px; font-family:'Source Serif 4',Georgia,serif; font-size:40px; line-height:1; letter-spacing:-0.02em">{{ p.price }}</div>
+            <p style="{{ p.subStyle }}">{{ p.sub }}</p>
+            <p style="{{ p.descStyle }}">{{ p.desc }}</p>
+            <a href="mailto:hola@healthdataprogram.com" style="{{ p.ctaStyle }}">{{ p.cta }}</a>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:28px 0 0; font-size:15.5px; line-height:1.65; color:#5A6478; max-width:70ch"><strong style="color:#1D1D1F; font-weight:600">Garantía:</strong> termina el Módulo 1. Si sientes que no es para ti, te devolvemos tu pago.</p>
+    </div>
+  </section>
+
+  <!-- COMPARATIVA -->
+  <section style="padding:128px 32px; background:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Comparativa</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 44px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em">Tus otras opciones</h2>
+      <div style="overflow-x:auto">
+        <div style="min-width:880px">
+          <div style="display:flex; gap:0; padding-bottom:16px; border-bottom:1px solid #1D1D1F">
+            <span style="flex:1.4 1 0; font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#8A93A6"></span>
+            <span style="flex:1 1 0; padding-left:20px; font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#8A93A6">Curso genérico de IA</span>
+            <span style="flex:1 1 0; padding-left:20px; font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#8A93A6">Maestría</span>
+            <span style="flex:1 1 0; padding-left:20px; font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#8A93A6">No hacer nada</span>
+            <span style="flex:1.2 1 0; padding-left:20px; font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#0B3D91">Este diplomado</span>
+          </div>
+          <sc-for list="{{ comparativa }}" as="r" hint-placeholder-count="5">
+            <div style="display:flex; align-items:center; padding:22px 0; border-bottom:1px solid #E6EBF3">
+              <span style="flex:1.4 1 0; font-size:16px; font-weight:500; color:#1D1D1F">{{ r.k }}</span>
+              <span style="flex:1 1 0; padding-left:20px; font-size:15.5px; color:#8A93A6">{{ r.a }}</span>
+              <span style="flex:1 1 0; padding-left:20px; font-size:15.5px; color:#8A93A6">{{ r.b }}</span>
+              <span style="flex:1 1 0; padding-left:20px; font-size:15.5px; color:#8A93A6">{{ r.c }}</span>
+              <span style="flex:1.2 1 0; padding-left:20px; font-size:15.5px; font-weight:500; color:#0B3D91">{{ r.d }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRUEBA -->
+  <section style="padding:0 32px 128px; background:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Prueba</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 48px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.4vw,54px); line-height:1.08; letter-spacing:-0.02em">6 generaciones ya cruzaron el puente</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:24px">
+        <div style="flex:1 1 380px; min-width:0; border:1px solid #E6EBF3; border-radius:6px; overflow:hidden">
+          <div style="height:240px; position:relative">
+            <image-slot id="hds-testi-1" shape="rect" fit="cover" placeholder="video/foto: Ian Perriliat"></image-slot>
+            <div style="position:absolute; inset:0; pointer-events:none; display:flex; align-items:center; justify-content:center"><span style="width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; color:#0B3D91; font-size:16px">▶</span></div>
+          </div>
+          <div style="padding:32px">
+            <span style="display:inline-block; font-size:10.5px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0B3D91; background:#E6F2FF; padding:6px 12px; border-radius:999px">Ruta Dev / Salud</span>
+            <p style="margin:20px 0 0; font-family:'Source Serif 4',Georgia,serif; font-size:22px; line-height:1.45; color:#1D1D1F">“frase clave del video”</p>
+            <p style="margin:16px 0 0; font-size:14px; color:#8A93A6">Ian Perriliat · egresado</p>
+          </div>
+        </div>
+        <div style="flex:1 1 380px; min-width:0; border:1px solid #E6EBF3; border-radius:6px; overflow:hidden">
+          <div style="height:240px; position:relative">
+            <image-slot id="hds-testi-2" shape="rect" fit="cover" placeholder="video/foto: Diego Ramírez"></image-slot>
+            <div style="position:absolute; inset:0; pointer-events:none; display:flex; align-items:center; justify-content:center"><span style="width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,0.92); display:flex; align-items:center; justify-content:center; color:#0B3D91; font-size:16px">▶</span></div>
+          </div>
+          <div style="padding:32px">
+            <span style="display:inline-block; font-size:10.5px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0B3D91; background:#E6F2FF; padding:6px 12px; border-radius:999px">Ruta Dev / Salud</span>
+            <p style="margin:20px 0 0; font-family:'Source Serif 4',Georgia,serif; font-size:22px; line-height:1.45; color:#1D1D1F">“frase clave del video”</p>
+            <p style="margin:16px 0 0; font-size:14px; color:#8A93A6">Diego Ramírez · egresado</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin:64px 0 28px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:28px; line-height:1.2; letter-spacing:-0.015em">Proyectos de egresados</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:1px; background:#E4EAF3; border:1px solid #E4EAF3">
+        <sc-for list="{{ proyectos }}" as="p" hint-placeholder-count="3">
+          <div style="flex:1 1 300px; min-width:0; padding:36px 32px; background:#FFFFFF">
+            <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#2D9CDB">{{ p.tag }}</span>
+            <h4 style="margin:16px 0 0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:22px; line-height:1.3; color:#1D1D1F">{{ p.name }}</h4>
+            <p style="margin:14px 0 0; font-size:15.5px; line-height:1.65; color:#5A6478">{{ p.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:32px 0 0; font-size:15.5px; color:#8A93A6">Organizado por Health Data Science Program de Health IDS y WIDS Community.</p>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section style="padding:0 32px 128px; background:#FFFFFF">
+    <div style="max-width:1240px; margin:0 auto">
+      <h2 style="margin:0 0 32px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(26px,3.4vw,42px); line-height:1.12; letter-spacing:-0.02em">Esto no es para todos</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:1px; background:#E4EAF3; border:1px solid #E4EAF3">
+        <div style="flex:1 1 340px; min-width:0; padding:48px; background:#FFFFFF">
+          <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#A8B0BF">No es para ti si</span>
+          <p style="margin:20px 0 0; font-family:'Source Serif 4',Georgia,serif; font-size:22px; line-height:1.45; color:#8A93A6">Buscas un certificado rápido sin construir nada. Aquí terminas con un demo que alguien más puede ver funcionar.</p>
+        </div>
+        <div style="flex:1 1 340px; min-width:0; padding:48px; background:#FFFFFF">
+          <span style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#2D9CDB">Es para ti si</span>
+          <p style="margin:20px 0 0; font-family:'Source Serif 4',Georgia,serif; font-size:22px; line-height:1.45; color:#1D1D1F">Te cansaste de ver cómo la IA transforma otras industrias mientras en salud los proyectos se quedan en PowerPoint, y quieres ser quien los saca adelante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONVENIOS -->
+  <section style="padding:112px 32px; background:#F6F8FB; border-top:1px solid #E6EBF3">
+    <div style="max-width:1240px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Convenios</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(26px,3.4vw,42px); line-height:1.12; letter-spacing:-0.02em; max-width:24ch">¿Tu organización tiene convenio? Usa tu código de referencia.</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:32px">
+        <sc-for list="{{ convenios }}" as="c" hint-placeholder-count="12">
+          <span style="font-size:14px; color:#3A4358; background:#FFFFFF; border:1px solid #E1E8F4; padding:11px 18px; border-radius:999px">{{ c }}</span>
+        </sc-for>
+      </div>
+      <div style="margin-top:40px; padding:36px 40px; border-radius:6px; background:#FFFFFF; border:1px solid #E1E8F4; display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:space-between">
+        <p style="margin:0; flex:1 1 320px; font-size:17px; line-height:1.55; color:#3A4358">¿Quieres formar a tu equipo? Paquetes para organizaciones y programas a la medida.</p>
+        <a href="mailto:hola@healthdataprogram.com" style="display:inline-flex; align-items:center; gap:8px; background:#0B3D91; color:#FFFFFF; font-size:15px; font-weight:600; padding:15px 26px; border-radius:999px; white-space:nowrap" style-hover="background:#092F72">Hablar con el equipo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:128px 32px; background:#FFFFFF">
+    <div style="max-width:900px; margin:0 auto">
+      <div style="font-size:11px; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:#2D9CDB">Preguntas</div>
+      <div style="width:44px; height:2px; background:#2D9CDB; margin:18px 0 28px"></div>
+      <h2 style="margin:0 0 44px; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(28px,4vw,46px); line-height:1.08; letter-spacing:-0.02em">Lo que todos preguntan</h2>
+      <div style="display:flex; flex-direction:column; border-top:1px solid #E6EBF3">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div onClick="{{ f.toggle }}" style="padding:26px 2px; border-bottom:1px solid #E6EBF3; cursor:pointer">
+            <div style="display:flex; align-items:baseline; gap:24px">
+              <span style="flex:1; font-family:'Source Serif 4',Georgia,serif; font-size:21px; line-height:1.35; color:#1D1D1F">{{ f.q }}</span>
+              <span style="font-size:18px; color:#A8B0BF; font-weight:300">{{ f.sign }}</span>
+            </div>
+            <div style="{{ f.bodyStyle }}">
+              <p style="margin:16px 0 0; font-size:16.5px; line-height:1.7; color:#5A6478; max-width:62ch">{{ f.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section id="inscribirme" style="position:relative; background:#071E4D; color:#FFFFFF; overflow:hidden">
+    <div style="position:absolute; inset:0">
+      <image-slot id="hds-cierre" shape="rect" fit="cover" placeholder="foto: instalación hospitalaria / equipo (moodboard)"></image-slot>
+    </div>
+    <div style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(7,30,77,0.9) 0%, rgba(11,61,145,0.88) 100%)"></div>
+    <div style="position:relative; pointer-events:none; max-width:960px; margin:0 auto; padding:140px 32px; text-align:center">
+      <h2 style="margin:0; font-family:'Source Serif 4',Georgia,serif; font-weight:400; font-size:clamp(30px,4.6vw,56px); line-height:1.08; letter-spacing:-0.02em; text-wrap:balance">Hay miles de desarrolladores y miles de profesionales de salud. Muy pocos hablan los dos idiomas.</h2>
+      <p style="margin:28px auto 0; max-width:52ch; font-size:18px; line-height:1.65; color:#C5D6EE">Los proyectos de IA en salud van a necesitar a esas personas. Tú decides si eres una de ellas.</p>
+      <div style="pointer-events:auto; display:flex; justify-content:center">
+        <a href="#rutas" style="display:inline-flex; align-items:center; gap:10px; margin-top:40px; background:#FFFFFF; color:#0B3D91; font-size:16.5px; font-weight:600; padding:18px 34px; border-radius:999px; white-space:nowrap" style-hover="background:#E6F2FF">Descubre tu ruta <span>→</span></a>
+      </div>
+      <p style="margin:20px auto 0; max-width:56ch; font-size:14px; line-height:1.6; color:#9FB8DA">Empieza con el Módulo 1 con garantía. Si subes al diplomado, lo pagado se abona completo.</p>
+    </div>
+  </section>
+
+  <footer style="padding:44px 32px; background:#FFFFFF; border-top:1px solid #E6EBF3; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between">
+    <img src="logo-health-ids.png" alt="Health IDS" style="height:24px; width:auto; mix-blend-mode:multiply" />
+    <span style="font-size:12.5px; color:#8A93A6">Health Data Science Program · WIDS Community</span>
+    <a href="mailto:hola@healthdataprogram.com" style="font-size:14px; color:#0B3D91">hola@healthdataprogram.com</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;precioModulo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[$P]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Precios&quot;},&quot;precioMensual&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[$P]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Precios&quot;},&quot;precioDiplomado&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[$6.5P]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Precios&quot;},&quot;ahorro&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[$1.5P]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Precios&quot;},&quot;diasGarantia&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;14&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Precios&quot;}}">
+class Component extends DCLogic {
+  state = { track: null, openFaq: 0 };
+
+  renderVals() {
+    const track = this.state.track;
+    const P = this.props;
+    const pModulo = P.precioModulo || "[$P]";
+    const pMensual = P.precioMensual || "[$P]";
+    const pTotal = P.precioDiplomado || "[$6.5P]";
+    const dias = P.diasGarantia || "14";
+
+    const card = (active) => "flex:1 1 440px; min-width:0; border-radius:6px; overflow:hidden; background:#FFFFFF; cursor:pointer; transition:box-shadow .25s, border-color .25s, transform .25s; border:1px solid " +
+      (active ? "#0B3D91" : "#E1E8F4") + "; box-shadow:" + (active ? "0 30px 60px -28px rgba(11,61,145,0.45)" : "0 1px 2px rgba(11,61,145,0.05)") + "; transform:translateY(" + (active ? "-3px" : "0") + ")";
+    const dot = (active) => "width:20px; height:20px; border-radius:50%; flex:none; margin-top:4px; border:1.5px solid " + (active ? "#0B3D91" : "#D3DCEB") + "; background:" + (active ? "radial-gradient(circle, #0B3D91 0 5px, #FFFFFF 6px)" : "#FFFFFF");
+
+    const mods = [
+      ["Datos para la salud y roles en un proyecto", "Ubicar dónde encajas y a quién necesitas en un proyecto de analítica"],
+      ["¿Qué es la ciencia de datos?", "Elegir la metodología y los métodos estadísticos correctos antes de escribir código"],
+      ["Herramientas de ciencia de datos", "Hacer análisis descriptivos y series de tiempo con datasets reales"],
+      ["Obtención de datos y repositorios", "Encontrar fuentes de datos de salud, organizarlas, clasificarlas y agruparlas"],
+      ["Ingeniería de datos", "Obtener, minar y transformar datos para cualquier proceso"],
+      ["Machine Learning", "Entrenar modelos de clasificación con herramientas en la nube y casos de salud"],
+      ["IA y Deep Learning", "Diseñar, implementar y evaluar un proyecto de IA clínico, administrativo u organizacional"],
+      ["Proyecto final", "Presentar un caso de negocio con un demo funcional"]
+    ];
+
+    const faqData = [
+      ["¿Necesito saber programar?", "No si vienes de salud: el Módulo 0 de tu ruta te nivela. Si ya programas, tu ruta se enfoca en el sector."],
+      ["¿Y si no puedo sostener 9 meses?", "Avanzas a tu ritmo, pagas por mes si prefieres y cada módulo te da su propio certificado. Nada de lo que hagas se pierde."],
+      ["¿Cuándo recibo el certificado del Tec?", "Al completar los 8 módulos, en el siguiente corte de emisión. Hay dos cortes al año."],
+      ["¿Puedo empezar solo con un módulo?", "Sí. Empieza con el Módulo 1 con garantía; si subes al diplomado en " + dias + " días, lo pagado se abona completo."],
+      ["¿Cuánto cuesta?", "Módulo " + pModulo + " · Plan mensual " + pMensual + " al mes · Diplomado completo " + pTotal + "."]
+    ];
+    const faqs = faqData.map((f, i) => {
+      const open = this.state.openFaq === i;
+      return { q: f[0], a: f[1], sign: open ? "−" : "+", toggle: () => this.setState({ openFaq: open ? -1 : i }), bodyStyle: "display:" + (open ? "block" : "none") };
+    });
+
+    const plan = (hi) => ({
+      cardStyle: "flex:1 1 300px; min-width:0; padding:36px 32px; border-radius:6px; display:flex; flex-direction:column; " +
+        (hi ? "background:#0B3D91; color:#FFFFFF; border:1px solid #0B3D91; box-shadow:0 30px 60px -30px rgba(11,61,145,0.6)" : "background:#FFFFFF; color:#1D1D1F; border:1px solid #E1E8F4"),
+      labelStyle: "font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:" + (hi ? "#8FC4EE" : "#2D9CDB"),
+      starStyle: hi ? "font-size:10px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:#0B3D91; background:#FFFFFF; padding:4px 10px; border-radius:999px" : "display:none",
+      subStyle: "margin:10px 0 0; font-size:14.5px; color:" + (hi ? "#B9D3F0" : "#8A93A6"),
+      descStyle: "margin:22px 0 28px; flex:1; font-size:15.5px; line-height:1.65; color:" + (hi ? "#E6F2FF" : "#5A6478"),
+      ctaStyle: "display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:600; padding:15px 24px; border-radius:999px; white-space:nowrap; " +
+        (hi ? "background:#FFFFFF; color:#0B3D91" : "background:#F6F8FB; color:#0B3D91; border:1px solid #E1E8F4")
+    });
+
+    return {
+      trustItems: ["Aval Tec de Monterrey", "6 generaciones desde 2021", "100% virtual", "Proyecto final con demo funcional"],
+      pickDev: () => this.setState({ track: "dev" }),
+      pickSalud: () => this.setState({ track: "salud" }),
+      devCardStyle: card(track === "dev"),
+      saludCardStyle: card(track === "salud"),
+      devDotStyle: dot(track === "dev"),
+      saludDotStyle: dot(track === "salud"),
+      proyectoNota: track === "dev"
+        ? "Ruta developer: tu demo es la pieza de portafolio que te abre entrevistas en healthtech."
+        : track === "salud"
+        ? "Ruta salud y administración: tu demo es el caso de negocio que presentas a dirección."
+        : "Elige tu ruta arriba y te decimos para qué te sirve exactamente este proyecto.",
+      modules: mods.map((m, i) => ({ num: "0" + (i + 1), title: m[0], can: m[1] })),
+      faqs,
+      metodo: [
+        { n: "①", t: "Nivelación por tu ruta", d: "Si vienes de desarrollo, aprendes el sector: sistemas de salud, datos clínicos y el marco que los protege. Si vienes de salud, aprendes la base técnica sin sentirte fuera de lugar." },
+        { n: "②", t: "Tronco común de 8 módulos", d: "De la ciencia de datos al machine learning y al deep learning, siempre con datos y casos de salud, nunca con datasets de juguete." },
+        { n: "③", t: "Tu demo funcional", d: "Cierras con un caso de negocio y un demo de IA que ataca un problema real de salud. Es tu prueba, no un diploma más." }
+      ],
+      incluye: [
+        "8 módulos del diplomado, 100% virtuales y a tu ritmo",
+        "Certificado por cada módulo que completes",
+        "Certificado del diplomado avalado por la Escuela de Medicina y Ciencias de la Salud del Tec de Monterrey",
+        "Módulo 0 de nivelación según tu ruta",
+        "Banco de problemas reales de organizaciones del sector para tu proyecto final",
+        "Kit del proyecto final: plantilla de caso de negocio, estructura del demo y guion de presentación",
+        "Sesión mensual en vivo de dudas y avance",
+        "Acceso prioritario a Health Data Week, webinars y al Programa de Internship"
+      ],
+      planes: [
+        Object.assign(plan(false), { label: "Módulo 1", price: pModulo, sub: "Pago único", desc: "Pruébalo con garantía. Si subes al diplomado en " + dias + " días, lo pagado se abona completo.", cta: "Empezar Módulo 1" }),
+        Object.assign(plan(false), { label: "Plan mensual", price: pMensual, sub: "al mes · un módulo por mes", desc: "Avanzas y pagas al mismo ritmo.", cta: "Empezar plan mensual" }),
+        Object.assign(plan(true), { label: "Diplomado completo", price: pTotal, sub: "pago único · ahorras " + (P.ahorro || "[$1.5P]"), desc: "Todo el stack y el camino más corto al certificado del Tec.", cta: "Inscribirme al diplomado" })
+      ],
+      comparativa: [
+        { k: "Contexto de salud", a: "✗", b: "Depende", c: "✗", d: "✓" },
+        { k: "Tiempo", a: "Semanas", b: "2+ años", c: "—", d: "9 meses a tu ritmo" },
+        { k: "Sin dejar tu trabajo", a: "✓", b: "A veces", c: "✓", d: "✓" },
+        { k: "Aval del sector salud", a: "✗", b: "✓", c: "✗", d: "✓ Escuela de Medicina, Tec de Monterrey" },
+        { k: "Terminas con algo que mostrar", a: "Rara vez", b: "Tesis", c: "✗", d: "✓ Demo funcional" }
+      ],
+      proyectos: [
+        { tag: "Proyecto de egresado", name: "[Nombre del proyecto]", desc: "[Problema de salud que ataca y resultado obtenido — tomar de la página de proyectos del sitio.]" },
+        { tag: "Proyecto de egresado", name: "[Nombre del proyecto]", desc: "[Problema de salud que ataca y resultado obtenido — tomar de la página de proyectos del sitio.]" },
+        { tag: "Proyecto de egresado", name: "[Nombre del proyecto]", desc: "[Problema de salud que ataca y resultado obtenido — tomar de la página de proyectos del sitio.]" }
+      ],
+      convenios: ["Asociación Healthtech México", "Grupo Mexicano de Hospitales", "Clúster Médico Jalisco", "Clúster de Ingeniería Biomédica del Estado de Jalisco", "Colegio de Ingenieros Biomédicos de México", "Colegio de Medicina Interna de México", "HealthX Mx", "Organización Internacional de Telemedicina y Telesalud", "RECAINSA", "Sociedad Mexicana de Ingeniería Biomédica", "SUSADI", "TISAC"]
+    };
+  }
+}
+</script>
+</body>
+</html>

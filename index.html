@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diplomado Health Data Science · Health IDS</title>
+<meta name="description" content="Con el Método Puente llegas desde el desarrollo o desde el sector salud y en 8 módulos 100% virtuales terminas con un demo funcional de IA. Avalado por la Escuela de Medicina y Ciencias de la Salud del Tec de Monterrey.">
+<meta property="og:title" content="El perfil más escaso en salud: quien habla salud y habla datos">
+<meta property="og:description" content="Diplomado Health Data Science · Método Puente · 8 módulos 100% virtuales · Aval Tec de Monterrey.">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="icon" href="assets/logo-health-ids.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B3D91; --navy-d:#092F72; --ink-navy:#071E4D; --sky:#2D9CDB; --sky-l:#8FC4EE;
+    --ice:#E6F2FF; --mist:#F6F8FB; --line:#E6EBF3; --line2:#E1E8F4; --grid:#E4EAF3;
+    --ink:#1D1D1F; --body:#3A4358; --muted:#5A6478; --faint:#8A93A6; --faint2:#A8B0BF;
+    --serif:'Source Serif 4',Georgia,serif;
+  }
+  html,body{margin:0;padding:0;background:#fff}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{font-family:'Inter',-apple-system,'Helvetica Neue',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  *{box-sizing:border-box}
+  a{color:var(--navy);text-decoration:none;transition:background .2s,border-color .2s,color .2s}
+  a:hover{color:var(--sky)}
+  img{display:block}
+  .page{width:100%;overflow-x:hidden}
+  .wrap{max-width:1240px;margin:0 auto}
+  .serif{font-family:var(--serif)}
+  .eyebrow{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sky)}
+  .rule{width:44px;height:2px;background:var(--sky);margin:18px 0 28px}
+  .h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.4vw,54px);line-height:1.08;letter-spacing:-.02em}
+  .label{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sky)}
+  .sec{padding:128px 32px}
+  .grid1{display:flex;flex-wrap:wrap;gap:1px;background:var(--grid);border:1px solid var(--grid)}
+  .grid1>*{background:#fff;min-width:0}
+  .ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#0B3D91,#071E4D)}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;border-radius:999px;white-space:nowrap}
+  .btn-white{background:#fff;color:var(--navy)} .btn-white:hover{background:var(--ice);color:var(--navy)}
+  .btn-navy{background:var(--navy);color:#fff} .btn-navy:hover{background:var(--navy-d);color:#fff}
+
+  /* header */
+  header{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 32px;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);border-bottom:1px solid rgba(11,61,145,.08)}
+  header .logo{height:28px;width:auto;flex:none;mix-blend-mode:multiply}
+  header nav{display:flex;align-items:center;gap:4px}
+  header nav a.nl{font-size:13.5px;font-weight:500;color:var(--muted);padding:9px 14px;white-space:nowrap}
+  header nav a.nl:hover{color:var(--navy)}
+  header nav .btn{font-size:13.5px;padding:11px 20px}
+
+  /* hero */
+  .hero{position:relative;background:var(--ink-navy);color:#fff;min-height:660px;display:flex}
+  .hero .ph{position:absolute;inset:0 0 0 auto;width:58%}
+  .hero .ph img{object-position:center 22%}
+  .hero .scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,rgba(7,30,77,.97) 0%,rgba(7,30,77,.93) 34%,rgba(11,61,145,.55) 62%,rgba(11,61,145,.15) 100%)}
+  .hero .in{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:104px 32px 88px;display:flex;align-items:center}
+  .hero .eyebrow{color:var(--sky-l);line-height:1.9}
+  .hero .rule{margin:22px 0 26px}
+  .hero h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.4vw,66px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+  .hero p{margin:28px 0 0;max-width:54ch;font-size:17px;line-height:1.7;color:#C5D6EE}
+  .hero p strong{color:#fff;font-weight:600}
+  .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+  .hero .ctas .btn{font-size:15.5px;padding:16px 28px}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)} .btn-ghost:hover{border-color:#fff;color:#fff}
+
+  .trust{background:var(--navy);color:#fff}
+  .trust .wrap{padding:20px 32px;display:flex;flex-wrap:wrap;gap:10px 36px;justify-content:space-between}
+  .trust span{font-size:11.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#B9D3F0;white-space:nowrap}
+
+  /* proclamación */
+  .pair>div{flex:1 1 320px;padding:40px}
+  .pair p{margin:18px 0 0;font-family:var(--serif);font-size:21px;line-height:1.45;color:var(--ink)}
+
+  /* mecanismo */
+  .mec{background:linear-gradient(180deg,#0B3D91 0%,#071E4D 100%);color:#fff}
+  .mec .eyebrow{color:var(--sky-l)}
+  .steps{display:flex;flex-wrap:wrap;gap:48px}
+  .steps>div{flex:1 1 280px;min-width:0;border-top:1px solid rgba(255,255,255,.22);padding-top:28px}
+  .steps .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--sky)}
+  .steps h3{margin:20px 0 0;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.3;letter-spacing:-.01em}
+  .steps p{margin:16px 0 0;font-size:16.5px;line-height:1.7;color:#C5D6EE}
+
+  /* rutas */
+  .alt{background:var(--mist);border-top:1px solid var(--line)}
+  .tracks{display:flex;flex-wrap:wrap;gap:24px}
+  .track{flex:1 1 440px;min-width:0;border-radius:6px;overflow:hidden;background:#fff;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;
+    transition:box-shadow .25s,border-color .25s,transform .25s;border:1px solid var(--line2);box-shadow:0 1px 2px rgba(11,61,145,.05)}
+  .track:hover{border-color:#B8C8E4}
+  .track[aria-pressed="true"]{border-color:var(--navy);box-shadow:0 30px 60px -28px rgba(11,61,145,.45);transform:translateY(-3px)}
+  .track:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+  .track .ph{height:180px}
+  .track .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,30,77,.25),rgba(7,30,77,.72))}
+  .track .ph span{position:absolute;z-index:1;left:32px;bottom:24px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+  .track .body{padding:36px}
+  .track .top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+  .track h3{margin:0;flex:1;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.25;letter-spacing:-.015em}
+  .dot{width:20px;height:20px;border-radius:50%;flex:none;margin-top:4px;border:1.5px solid #D3DCEB;background:#fff;transition:all .25s}
+  .track[aria-pressed="true"] .dot{border-color:var(--navy);background:radial-gradient(circle,#0B3D91 0 5px,#fff 6px)}
+  .track p.d{margin:18px 0 0;font-size:16px;line-height:1.7;color:var(--muted)}
+  .track hr{border:0;height:1px;background:var(--line);margin:28px 0}
+  .track .k{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .track p.t{margin:14px 0 0;font-size:16.5px;line-height:1.6;color:var(--ink)}
+  .track .go{margin-top:30px;display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--navy)}
+
+  /* temario */
+  .thead{display:flex;gap:24px;padding:0 0 14px;border-bottom:1px solid var(--ink)}
+  .thead span{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .mrow{display:flex;flex-wrap:wrap;gap:8px 24px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .c1{flex:1 1 300px;min-width:0} .c2{flex:1 1 340px;min-width:0}
+  .mrow .c1{display:flex;gap:18px;align-items:baseline}
+  .mrow .num{font-size:12px;font-weight:500;color:var(--sky);width:22px;flex:none}
+  .mrow .ti{font-family:var(--serif);font-size:21px;line-height:1.35}
+  .mrow p{margin:0;font-size:16.5px;line-height:1.65;color:var(--muted)}
+  .note{margin:28px 0 0;font-size:15.5px;color:var(--faint)}
+
+  /* entregable */
+  .deliv{display:flex;flex-wrap:wrap;gap:64px;align-items:center}
+  .deliv .ph{flex:1 1 420px;min-width:0;height:420px;border-radius:6px;box-shadow:0 40px 80px -30px rgba(11,61,145,.4)}
+  #proyectoNota{margin:28px 0 0;font-size:16px;line-height:1.6;color:var(--navy);font-weight:500;max-width:48ch;transition:opacity .25s}
+
+  /* oferta */
+  .inc>div{flex:1 1 300px;padding:28px 30px;display:flex;gap:14px;align-items:flex-start}
+  .inc span{color:var(--sky);flex:none;font-size:15px;line-height:1.6}
+  .inc p{margin:0;font-size:16px;line-height:1.6;color:var(--body)}
+  .plans{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+  .plan{flex:1 1 300px;min-width:0;padding:36px 32px;border-radius:6px;display:flex;flex-direction:column;background:#fff;color:var(--ink);border:1px solid var(--line2)}
+  .plan .lh{display:flex;align-items:center;gap:10px}
+  .plan .lab{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sky)}
+  .plan .star{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:#fff;padding:4px 10px;border-radius:999px}
+  .plan .price{margin-top:22px;font-family:var(--serif);font-size:40px;line-height:1;letter-spacing:-.02em}
+  .plan .sub{margin:10px 0 0;font-size:14.5px;color:var(--faint)}
+  .plan .desc{margin:22px 0 28px;flex:1;font-size:15.5px;line-height:1.65;color:var(--muted)}
+  .plan .btn{font-size:15px;padding:15px 24px;background:var(--mist);color:var(--navy);border:1px solid var(--line2)}
+  .plan .btn:hover{background:var(--ice);color:var(--navy)}
+  .plan.hi{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 30px 60px -30px rgba(11,61,145,.6)}
+  .plan.hi .lab{color:var(--sky-l)} .plan.hi .sub{color:#B9D3F0} .plan.hi .desc{color:var(--ice)}
+  .plan.hi .btn{background:#fff;border-color:#fff} .plan.hi .btn:hover{background:var(--ice)}
+
+  /* comparativa */
+  .cmp{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .cmp .tbl{min-width:880px}
+  .cmp .r{display:flex;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+  .cmp .r.h{padding:0 0 16px;border-bottom-color:var(--ink)}
+  .cmp .r>span{flex:1 1 0;padding-left:20px;font-size:15.5px;color:var(--faint)}
+  .cmp .r>span:first-child{flex:1.4 1 0;padding-left:0;font-size:16px;font-weight:500;color:var(--ink)}
+  .cmp .r>span:last-child{flex:1.2 1 0;font-weight:500;color:var(--navy)}
+  .cmp .r.h>span{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .cmp .r.h>span:last-child{font-weight:600;color:var(--navy)}
+
+  /* prueba */
+  .testis{display:flex;flex-wrap:wrap;gap:24px}
+  .testi{flex:1 1 380px;min-width:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .testi .ph{height:240px}
+  .testi .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,30,77,.25)}
+  .testi .play span{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:16px;padding-left:3px}
+  .testi .b{padding:32px}
+  .chip{display:inline-block;font-size:10.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--ice);padding:6px 12px;border-radius:999px}
+  .testi .q{margin:20px 0 0;font-family:var(--serif);font-size:22px;line-height:1.45}
+  .testi .who{margin:16px 0 0;font-size:14px;color:var(--faint)}
+  .projs>div{flex:1 1 300px;padding:36px 32px}
+  .projs h4{margin:16px 0 0;font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.3}
+  .projs p{margin:14px 0 0;font-size:15.5px;line-height:1.65;color:var(--muted)}
+
+  .fit>div{flex:1 1 340px;padding:48px}
+  .fit p{margin:20px 0 0;font-family:var(--serif);font-size:22px;line-height:1.45}
+
+  /* convenios */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+  .chips span{font-size:14px;color:var(--body);background:#fff;border:1px solid var(--line2);padding:11px 18px;border-radius:999px}
+  .team{margin-top:40px;padding:36px 40px;border-radius:6px;background:#fff;border:1px solid var(--line2);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+  .team p{margin:0;flex:1 1 320px;font-size:17px;line-height:1.55;color:var(--body)}
+  .team .btn{font-size:15px;padding:15px 26px}
+
+  /* faq */
+  .faq{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:26px 2px;display:flex;align-items:baseline;gap:24px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .qq{flex:1;font-family:var(--serif);font-size:21px;line-height:1.35}
+  .faq summary .sg{font-size:18px;color:var(--faint2);font-weight:300;width:12px;text-align:center}
+  .faq summary .sg::before{content:"+"}
+  .faq details[open] summary .sg::before{content:"−"}
+  .faq details p{margin:-10px 2px 26px;font-size:16.5px;line-height:1.7;color:var(--muted);max-width:62ch}
+
+  /* cierre */
+  .close{position:relative;background:var(--ink-navy);color:#fff;overflow:hidden}
+  .close .ph{position:absolute;inset:0}
+  .close .ph img{object-position:center 30%}
+  .close .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,30,77,.9) 0%,rgba(11,61,145,.88) 100%)}
+  .close .in{position:relative;max-width:960px;margin:0 auto;padding:140px 32px;text-align:center}
+  .close h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+  .close p{margin:28px auto 0;max-width:52ch;font-size:18px;line-height:1.65;color:#C5D6EE}
+  .close .btn{margin-top:40px;font-size:16.5px;padding:18px 34px}
+  .close small{display:block;margin:20px auto 0;max-width:56ch;font-size:14px;line-height:1.6;color:#9FB8DA}
+
+  footer{padding:44px 32px;background:#fff;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+  footer img{height:24px;width:auto;mix-blend-mode:multiply}
+  footer span{font-size:12.5px;color:var(--faint)}
+  footer a{font-size:14px}
+
+  @media (max-width:760px){
+    header{padding:12px 16px}
+    header .logo{height:24px}
+    header nav a.nl{display:none}
+    header nav .btn{padding:10px 16px;font-size:13px}
+    .sec{padding:88px 16px}
+    .sec.tight{padding-top:0;padding-bottom:88px}
+    .hero{min-height:0}
+    .hero .ph{width:100%}
+    .hero .scrim{background:linear-gradient(180deg,rgba(7,30,77,.72) 0%,rgba(7,30,77,.9) 45%,rgba(7,30,77,.97) 100%)}
+    .hero .in{padding:88px 16px 64px}
+    .hero .ctas .btn{width:100%;white-space:normal;text-align:center}
+    .trust .wrap{padding:18px 16px;justify-content:flex-start}
+    .pair>div,.fit>div{padding:32px 24px}
+    .track .body{padding:28px 24px}
+    .track .ph span{left:24px}
+    .track .go{white-space:normal}
+    .deliv{gap:40px}
+    .deliv .ph{flex-basis:100%;height:300px}
+    .thead{display:none}
+    .team{padding:28px 24px}
+    .team .btn{width:100%}
+    .close .in{padding:104px 16px}
+    footer{padding:36px 16px;flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <a href="#top" aria-label="Health IDS — inicio"><img class="logo" src="assets/logo-health-ids.png" alt="Health IDS"></a>
+    <nav>
+      <a class="nl" href="#metodo">Método</a>
+      <a class="nl" href="#programa">Temario</a>
+      <a class="nl" href="#oferta">Precios</a>
+      <a class="btn btn-navy" href="#rutas">Descubre tu ruta</a>
+    </nav>
+  </header>
+
+  <main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="ph"><img src="assets/hero.jpg" alt="" fetchpriority="high"></div>
+    <div class="scrim"></div>
+    <div class="in">
+      <div style="max-width:680px">
+        <div class="eyebrow">Avalado por la Escuela de Medicina y Ciencias<br>de la Salud del Tecnológico de Monterrey</div>
+        <div class="rule"></div>
+        <h1>El perfil más escaso en salud no es el científico de datos. Es quien habla salud y habla datos.</h1>
+        <p>Con el <strong>Método Puente</strong> llegas desde el desarrollo o desde el sector salud y en 8 módulos 100% virtuales terminas con un demo funcional de IA que resuelve un problema real de salud.</p>
+        <div class="ctas">
+          <a class="btn btn-white" href="#rutas">Descubre tu ruta <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#oferta">Empieza con el Módulo 1, con garantía</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <span>Aval Tec de Monterrey</span>
+      <span>6 generaciones desde 2021</span>
+      <span>100% virtual</span>
+      <span>Proyecto final con demo funcional</span>
+    </div>
+  </div>
+
+  <!-- PROCLAMACIÓN -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="eyebrow">La proclamación</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="max-width:20ch">La IA en salud no se está frenando por falta de tecnología.</h2>
+      <p class="serif" style="margin:26px 0 0;max-width:34ch;font-size:clamp(22px,2.6vw,30px);line-height:1.35;color:var(--navy)">Se frena en el espacio entre dos personas.</p>
+
+      <div class="grid1 pair" style="margin-top:56px">
+        <div>
+          <span class="label">El desarrollador</span>
+          <p>Construye el modelo, pero no sabe cómo funciona un hospital, qué datos existen ni qué reglas los protegen.</p>
+        </div>
+        <div>
+          <span class="label">El profesional de salud</span>
+          <p>Sabe exactamente qué hay que resolver, pero no sabe convertirlo en un proyecto de datos.</p>
+        </div>
+      </div>
+
+      <p style="margin:40px 0 0;max-width:62ch;font-size:17.5px;line-height:1.7;color:var(--muted)">Cada uno domina su mitad y el proyecto se queda en el piloto.</p>
+      <p class="serif" style="margin:24px 0 0;max-width:30ch;font-size:clamp(24px,2.8vw,34px);line-height:1.3;letter-spacing:-.015em;color:var(--navy)">Quien domina las dos mitades no compite por la vacante. La vacante lo busca a él.</p>
+    </div>
+  </section>
+
+  <!-- MECANISMO -->
+  <section id="metodo" class="sec mec">
+    <div class="wrap">
+      <div class="eyebrow">El mecanismo</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:64px;max-width:20ch">El Método Puente: dos entradas, un mismo destino</h2>
+      <div class="steps">
+        <div>
+          <span class="n">①</span>
+          <h3>Nivelación por tu ruta</h3>
+          <p>Si vienes de desarrollo, aprendes el sector: sistemas de salud, datos clínicos y el marco que los protege. Si vienes de salud, aprendes la base técnica sin sentirte fuera de lugar.</p>
+        </div>
+        <div>
+          <span class="n">②</span>
+          <h3>Tronco común de 8 módulos</h3>
+          <p>De la ciencia de datos al machine learning y al deep learning, siempre con datos y casos de salud, nunca con datasets de juguete.</p>
+        </div>
+        <div>
+          <span class="n">③</span>
+          <h3>Tu demo funcional</h3>
+          <p>Cierras con un caso de negocio y un demo de IA que ataca un problema real de salud. Es tu prueba, no un diploma más.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUTAS -->
+  <section id="rutas" class="alt" style="padding:120px 32px">
+    <div class="wrap">
+      <div class="eyebrow">Selector de ruta</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:10px">¿Desde dónde cruzas el puente?</h2>
+      <p style="margin:0 0 48px;font-size:16.5px;color:var(--muted)">Elige tu ruta y la página se ajusta a ti.</p>
+
+      <div class="tracks">
+        <button type="button" class="track" data-track="dev" aria-pressed="false">
+          <div class="ph"><img src="assets/track-dev.jpg" alt="" loading="lazy"><span>Ruta Developer</span></div>
+          <div class="body">
+            <div class="top">
+              <h3>Ya programas. Lo que te falta es el sector.</h3>
+              <span class="dot" aria-hidden="true"></span>
+            </div>
+            <p class="d">Las healthtechs no te descartan por tu código; te descartan porque no conoces el dominio. Aquí aprendes lo que un curso genérico de IA nunca te va a enseñar: cómo se mueven los datos en salud, quién los controla y cómo se construye algo que un hospital de verdad pueda usar.</p>
+            <hr>
+            <span class="k">Te llevas</span>
+            <p class="t">Dominio del sector + un demo de IA en salud para tu portafolio.</p>
+            <div class="go">Soy desarrollador <span aria-hidden="true">→</span></div>
+          </div>
+        </button>
+
+        <button type="button" class="track" data-track="salud" aria-pressed="false">
+          <div class="ph"><img src="assets/track-salud.jpg" alt="" loading="lazy"><span>Ruta Salud y Administrativo</span></div>
+          <div class="body">
+            <div class="top">
+              <h3>Conoces el problema mejor que nadie. Te falta cómo resolverlo.</h3>
+              <span class="dot" aria-hidden="true"></span>
+            </div>
+            <p class="d">Deja de ser quien pide el reporte y conviértete en quien diseña la solución. Aprendes a estructurar un proyecto de datos, a entender qué es posible con IA y a trabajar de tú a tú con el equipo técnico.</p>
+            <hr>
+            <span class="k">Te llevas</span>
+            <p class="t">Criterio técnico + un caso de negocio con demo para presentar en tu organización.</p>
+            <div class="go">Vengo de salud o administración <span aria-hidden="true">→</span></div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMARIO -->
+  <section id="programa" class="sec">
+    <div class="wrap">
+      <div class="eyebrow">Temario</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:20px">Lo que construyes módulo a módulo</h2>
+      <div class="thead"><span class="c1">Módulo</span><span class="c2">Al terminarlo puedes…</span></div>
+      <div id="modules"></div>
+      <p class="note">Puedes tomar módulos sueltos y recibir un certificado por cada uno.</p>
+    </div>
+  </section>
+
+  <!-- ENTREGABLE -->
+  <section class="sec tight" style="padding-top:0">
+    <div class="wrap deliv">
+      <div style="flex:1 1 400px;min-width:0">
+        <div class="eyebrow">Entregable</div>
+        <div class="rule"></div>
+        <h2 class="h2" style="font-size:clamp(30px,4.2vw,50px);max-width:17ch">Es tu prueba, no un diploma más.</h2>
+        <p style="margin:28px 0 0;font-size:17.5px;line-height:1.7;color:var(--muted);max-width:52ch">Cierras con un caso de negocio y un demo funcional de IA que ataca un problema real de salud. Sirve para la entrevista en una healthtech, para la propuesta a dirección o para el siguiente paso en tu carrera.</p>
+        <p id="proyectoNota">Elige tu ruta arriba y te decimos para qué te sirve exactamente este proyecto.</p>
+      </div>
+      <div class="ph"><img src="assets/demo.jpg" alt="Dashboard del proyecto final en la plataforma Health IDS" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta" class="alt" style="padding:120px 32px">
+    <div class="wrap">
+      <div class="eyebrow">La oferta</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:48px">Todo lo que incluye tu inscripción</h2>
+      <div class="grid1 inc" id="incluye"></div>
+
+      <h3 class="serif" style="margin:72px 0 32px;font-weight:400;font-size:clamp(24px,3vw,36px);line-height:1.15;letter-spacing:-.02em">Elige cómo entrar</h3>
+      <div class="plans">
+        <div class="plan">
+          <div class="lh"><span class="lab">Módulo 1</span></div>
+          <div class="price" data-price="modulo"></div>
+          <p class="sub">Pago único</p>
+          <p class="desc">Pruébalo con garantía. Si subes al diplomado en <span data-dias></span> días, lo pagado se abona completo.</p>
+          <a class="btn" href="mailto:hola@healthdataprogram.com?subject=Quiero%20empezar%20el%20M%C3%B3dulo%201">Empezar Módulo 1</a>
+        </div>
+        <div class="plan">
+          <div class="lh"><span class="lab">Plan mensual</span></div>
+          <div class="price" data-price="mensual"></div>
+          <p class="sub">al mes · un módulo por mes</p>
+          <p class="desc">Avanzas y pagas al mismo ritmo.</p>
+          <a class="btn" href="mailto:hola@healthdataprogram.com?subject=Quiero%20el%20plan%20mensual">Empezar plan mensual</a>
+        </div>
+        <div class="plan hi">
+          <div class="lh"><span class="lab">Diplomado completo</span><span class="star">Recomendado</span></div>
+          <div class="price" data-price="diplomado"></div>
+          <p class="sub">pago único · ahorras <span data-price="ahorro"></span></p>
+          <p class="desc">Todo el stack y el camino más corto al certificado del Tec.</p>
+          <a class="btn" href="mailto:hola@healthdataprogram.com?subject=Quiero%20inscribirme%20al%20diplomado">Inscribirme al diplomado</a>
+        </div>
+      </div>
+      <p style="margin:28px 0 0;font-size:15.5px;line-height:1.65;color:var(--muted);max-width:70ch"><strong style="color:var(--ink);font-weight:600">Garantía:</strong> termina el Módulo 1. Si sientes que no es para ti, te devolvemos tu pago.</p>
+    </div>
+  </section>
+
+  <!-- COMPARATIVA -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="eyebrow">Comparativa</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:44px">Tus otras opciones</h2>
+      <div class="cmp">
+        <div class="tbl" id="comparativa">
+          <div class="r h"><span></span><span>Curso genérico de IA</span><span>Maestría</span><span>No hacer nada</span><span>Este diplomado</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRUEBA -->
+  <section class="sec tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Prueba</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:48px">6 generaciones ya cruzaron el puente</h2>
+      <div class="testis">
+        <div class="testi">
+          <div class="ph"><img src="assets/testi-1.jpg" alt="" loading="lazy"><div class="play"><span>▶</span></div></div>
+          <div class="b">
+            <span class="chip">Ruta Dev / Salud</span>
+            <p class="q">“frase clave del video”</p>
+            <p class="who">Ian Perriliat · egresado</p>
+          </div>
+        </div>
+        <div class="testi">
+          <div class="ph"><img src="assets/testi-2.jpg" alt="" loading="lazy"><div class="play"><span>▶</span></div></div>
+          <div class="b">
+            <span class="chip">Ruta Dev / Salud</span>
+            <p class="q">“frase clave del video”</p>
+            <p class="who">Diego Ramírez · egresado</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="serif" style="margin:64px 0 28px;font-weight:400;font-size:28px;line-height:1.2;letter-spacing:-.015em">Proyectos de egresados</h3>
+      <div class="grid1 projs">
+        <div><span class="label">Proyecto de egresado</span><h4>[Nombre del proyecto]</h4><p>[Problema de salud que ataca y resultado obtenido — tomar de la página de proyectos del sitio.]</p></div>
+        <div><span class="label">Proyecto de egresado</span><h4>[Nombre del proyecto]</h4><p>[Problema de salud que ataca y resultado obtenido — tomar de la página de proyectos del sitio.]</p></div>
+        <div><span class="label">Proyecto de egresado</span><h4>[Nombre del proyecto]</h4><p>[Problema de salud que ataca y resultado obtenido — tomar de la página de proyectos del sitio.]</p></div>
+      </div>
+      <p class="note" style="margin-top:32px">Organizado por Health Data Science Program de Health IDS y WIDS Community.</p>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section class="sec tight" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="h2" style="margin-bottom:32px;font-size:clamp(26px,3.4vw,42px);line-height:1.12">Esto no es para todos</h2>
+      <div class="grid1 fit">
+        <div>
+          <span class="label" style="color:var(--faint2)">No es para ti si</span>
+          <p style="color:var(--faint)">Buscas un certificado rápido sin construir nada. Aquí terminas con un demo que alguien más puede ver funcionar.</p>
+        </div>
+        <div>
+          <span class="label">Es para ti si</span>
+          <p>Te cansaste de ver cómo la IA transforma otras industrias mientras en salud los proyectos se quedan en PowerPoint, y quieres ser quien los saca adelante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONVENIOS -->
+  <section class="alt" style="padding:112px 32px">
+    <div class="wrap">
+      <div class="eyebrow">Convenios</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="font-size:clamp(26px,3.4vw,42px);line-height:1.12;max-width:24ch">¿Tu organización tiene convenio? Usa tu código de referencia.</h2>
+      <div class="chips" id="convenios"></div>
+      <div class="team">
+        <p>¿Quieres formar a tu equipo? Paquetes para organizaciones y programas a la medida.</p>
+        <a class="btn btn-navy" href="mailto:hola@healthdataprogram.com?subject=Formaci%C3%B3n%20para%20mi%20equipo">Hablar con el equipo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <div style="max-width:900px;margin:0 auto">
+      <div class="eyebrow">Preguntas</div>
+      <div class="rule"></div>
+      <h2 class="h2" style="margin-bottom:44px;font-size:clamp(28px,4vw,46px)">Lo que todos preguntan</h2>
+      <div class="faq" id="faqs"></div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section id="inscribirme" class="close">
+    <div class="ph"><img src="assets/cierre.jpg" alt="" loading="lazy"></div>
+    <div class="scrim"></div>
+    <div class="in">
+      <h2>Hay miles de desarrolladores y miles de profesionales de salud. Muy pocos hablan los dos idiomas.</h2>
+      <p>Los proyectos de IA en salud van a necesitar a esas personas. Tú decides si eres una de ellas.</p>
+      <a class="btn btn-white" href="#rutas">Descubre tu ruta <span aria-hidden="true">→</span></a>
+      <small>Empieza con el Módulo 1 con garantía. Si subes al diplomado, lo pagado se abona completo.</small>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <img src="assets/logo-health-ids.png" alt="Health IDS">
+    <span>Health Data Science Program · WIDS Community</span>
+    <a href="mailto:hola@healthdataprogram.com">hola@healthdataprogram.com</a>
+  </footer>
+</div>
+
+<script>
+/* ── Precios: edita aquí ── */
+const PRECIOS = {
+  modulo: "[$P]",
+  mensual: "[$P]",
+  diplomado: "[$6.5P]",
+  ahorro: "[$1.5P]",
+  diasGarantia: "14"
+};
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+document.querySelectorAll("[data-price]").forEach(el => { el.textContent = PRECIOS[el.dataset.price]; });
+document.querySelectorAll("[data-dias]").forEach(el => { el.textContent = PRECIOS.diasGarantia; });
+
+const MODULES = [
+  ["Datos para la salud y roles en un proyecto", "Ubicar dónde encajas y a quién necesitas en un proyecto de analítica"],
+  ["¿Qué es la ciencia de datos?", "Elegir la metodología y los métodos estadísticos correctos antes de escribir código"],
+  ["Herramientas de ciencia de datos", "Hacer análisis descriptivos y series de tiempo con datasets reales"],
+  ["Obtención de datos y repositorios", "Encontrar fuentes de datos de salud, organizarlas, clasificarlas y agruparlas"],
+  ["Ingeniería de datos", "Obtener, minar y transformar datos para cualquier proceso"],
+  ["Machine Learning", "Entrenar modelos de clasificación con herramientas en la nube y casos de salud"],
+  ["IA y Deep Learning", "Diseñar, implementar y evaluar un proyecto de IA clínico, administrativo u organizacional"],
+  ["Proyecto final", "Presentar un caso de negocio con un demo funcional"]
+];
+document.getElementById("modules").innerHTML = MODULES.map((m, i) =>
+  `<div class="mrow"><div class="c1"><span class="num">0${i + 1}</span><span class="ti">${esc(m[0])}</span></div><p class="c2">${esc(m[1])}</p></div>`
+).join("");
+
+const INCLUYE = [
+  "8 módulos del diplomado, 100% virtuales y a tu ritmo",
+  "Certificado por cada módulo que completes",
+  "Certificado del diplomado avalado por la Escuela de Medicina y Ciencias de la Salud del Tec de Monterrey",
+  "Módulo 0 de nivelación según tu ruta",
+  "Banco de problemas reales de organizaciones del sector para tu proyecto final",
+  "Kit del proyecto final: plantilla de caso de negocio, estructura del demo y guion de presentación",
+  "Sesión mensual en vivo de dudas y avance",
+  "Acceso prioritario a Health Data Week, webinars y al Programa de Internship"
+];
+document.getElementById("incluye").innerHTML = INCLUYE.map(t =>
+  `<div><span aria-hidden="true">✓</span><p>${esc(t)}</p></div>`
+).join("");
+
+const COMPARATIVA = [
+  ["Contexto de salud", "✗", "Depende", "✗", "✓"],
+  ["Tiempo", "Semanas", "2+ años", "—", "9 meses a tu ritmo"],
+  ["Sin dejar tu trabajo", "✓", "A veces", "✓", "✓"],
+  ["Aval del sector salud", "✗", "✓", "✗", "✓ Escuela de Medicina, Tec de Monterrey"],
+  ["Terminas con algo que mostrar", "Rara vez", "Tesis", "✗", "✓ Demo funcional"]
+];
+document.getElementById("comparativa").insertAdjacentHTML("beforeend", COMPARATIVA.map(r =>
+  `<div class="r">${r.map(c => `<span>${esc(c)}</span>`).join("")}</div>`
+).join(""));
+
+const CONVENIOS = ["Asociación Healthtech México", "Grupo Mexicano de Hospitales", "Clúster Médico Jalisco", "Clúster de Ingeniería Biomédica del Estado de Jalisco", "Colegio de Ingenieros Biomédicos de México", "Colegio de Medicina Interna de México", "HealthX Mx", "Organización Internacional de Telemedicina y Telesalud", "RECAINSA", "Sociedad Mexicana de Ingeniería Biomédica", "SUSADI", "TISAC"];
+document.getElementById("convenios").innerHTML = CONVENIOS.map(c => `<span>${esc(c)}</span>`).join("");
+
+const FAQS = [
+  ["¿Necesito saber programar?", "No si vienes de salud: el Módulo 0 de tu ruta te nivela. Si ya programas, tu ruta se enfoca en el sector."],
+  ["¿Y si no puedo sostener 9 meses?", "Avanzas a tu ritmo, pagas por mes si prefieres y cada módulo te da su propio certificado. Nada de lo que hagas se pierde."],
+  ["¿Cuándo recibo el certificado del Tec?", "Al completar los 8 módulos, en el siguiente corte de emisión. Hay dos cortes al año."],
+  ["¿Puedo empezar solo con un módulo?", `Sí. Empieza con el Módulo 1 con garantía; si subes al diplomado en ${PRECIOS.diasGarantia} días, lo pagado se abona completo.`],
+  ["¿Cuánto cuesta?", `Módulo ${PRECIOS.modulo} · Plan mensual ${PRECIOS.mensual} al mes · Diplomado completo ${PRECIOS.diplomado}.`]
+];
+const faqEl = document.getElementById("faqs");
+faqEl.innerHTML = FAQS.map((f, i) =>
+  `<details${i === 0 ? " open" : ""}><summary><span class="qq">${esc(f[0])}</span><span class="sg" aria-hidden="true"></span></summary><p>${esc(f[1])}</p></details>`
+).join("");
+// Acordeón: solo una abierta a la vez
+faqEl.addEventListener("toggle", e => {
+  if (e.target.open) faqEl.querySelectorAll("details[open]").forEach(d => { if (d !== e.target) d.open = false; });
+}, true);
+
+// Selector de ruta
+const NOTAS = {
+  dev: "Ruta developer: tu demo es la pieza de portafolio que te abre entrevistas en healthtech.",
+  salud: "Ruta salud y administración: tu demo es el caso de negocio que presentas a dirección."
+};
+const nota = document.getElementById("proyectoNota");
+const tracks = document.querySelectorAll(".track");
+tracks.forEach(btn => btn.addEventListener("click", () => {
+  const t = btn.dataset.track;
+  tracks.forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+  nota.textContent = NOTAS[t];
+  document.documentElement.dataset.track = t;
+}));
+</script>
+</body>
+</html>
