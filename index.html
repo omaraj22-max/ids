@@ -53,7 +53,7 @@
   /* hero */
   .hero{position:relative;background:var(--ink-navy);color:#fff;min-height:660px;display:flex}
   .hero .ph{position:absolute;inset:0 0 0 auto;width:58%}
-  .hero .ph img{object-position:center 22%}
+  .hero .ph img{object-position:55% 25%}
   .hero .scrim{position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,rgba(7,30,77,.97) 0%,rgba(7,30,77,.93) 34%,rgba(11,61,145,.55) 62%,rgba(11,61,145,.15) 100%)}
   .hero .in{position:relative;width:100%;max-width:1240px;margin:0 auto;padding:104px 32px 88px;display:flex;align-items:center}
   .hero .eyebrow{color:var(--sky-l);line-height:1.9}
@@ -93,6 +93,7 @@
   .track .ph{height:180px}
   .track .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,30,77,.25),rgba(7,30,77,.72))}
   .track .ph span{position:absolute;z-index:1;left:32px;bottom:24px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff}
+  .track[data-track="dev"] .ph img{object-position:50% 76%}
   .track .body{padding:36px}
   .track .top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
   .track h3{margin:0;flex:1;font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.25;letter-spacing:-.015em}
@@ -153,6 +154,7 @@
   .testis{display:flex;flex-wrap:wrap;gap:24px}
   .testi{flex:1 1 380px;min-width:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
   .testi .ph{height:240px}
+  .testi .ph img{object-position:50% 45%}
   .testi .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(7,30,77,.25)}
   .testi .play span{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:16px;padding-left:3px}
   .testi .b{padding:32px}
@@ -187,7 +189,7 @@
   /* cierre */
   .close{position:relative;background:var(--ink-navy);color:#fff;overflow:hidden}
   .close .ph{position:absolute;inset:0}
-  .close .ph img{object-position:center 30%}
+  .close .ph img{object-position:center 55%}
   .close .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,30,77,.9) 0%,rgba(11,61,145,.88) 100%)}
   .close .in{position:relative;max-width:960px;margin:0 auto;padding:140px 32px;text-align:center}
   .close h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.6vw,56px);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
